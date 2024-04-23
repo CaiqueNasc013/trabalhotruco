@@ -2,122 +2,58 @@ package Controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import View.InterfaceRH;
 import model.Candidatura;
 import model.Funcionario;
-import model.Vagas;
+import model.Vaga;
 
 public class GerenciadorRH {
 	    private List<Funcionario> funcionarios;
-	    private List<Vagas> vagas;
+	    private List<Vaga> vagas;
 	    private List<Candidatura> candidaturas;
-
-	    public GerenciadorRH() {
-	        this.funcionarios = new ArrayList<>();
-	        this.vagas = new ArrayList<>();
-	        this.candidaturas = new ArrayList<>();
-	    }
-
-	  
+	    
+	    //Adicionar Funcionario
+	    
 	    public void adicionarFuncionario(Funcionario funcionario) {
 	        funcionarios.add(funcionario);
 	    }
-
-	    @Override
-	    public void atualizarFuncionario(){
-	        for (int i = 0; i < funcionarios.size(); i++) {
-	            if (funcionarios.get(i).getId() == funcionario.getId()) {
-	                funcionarios.set(i, funcionario);
-	                break;
+	    
+	    public Funcionario buscarFuncionario(String cargo, String nome) {
+	        for (Funcionario funcionario : funcionarios) {
+	            if (funcionario.getCargo().equals(cargo) && funcionario.getNome().equals(nome)) {
+	                return funcionario;
 	            }
 	        }
+	        return null;
 	    }
-
-	    @Override
-	    public void removerFuncionario(Funcionario funcionario){
-	        funcionarios.removeIf(funcionario -> funcionario.getId() == id);
-	    }
-
-	    @Override
-	    public void adicionarVagas1(Vagas vaga) {
+	    //adicionar Vaga
+	    public void adicionarVaga(Vaga vaga) {
 	        vagas.add(vaga);
 	    }
-
-	    @Override
-	    public void atualizarVaga(Vaga vaga) {
-	        for (int i = 0; i < vagas.size(); i++) {
-	            if (vagas.get(i).getId() == vaga.getId()) {
-	                vagas.set(i, vaga);
-	                break;
+	    
+	    public Vaga buscarVaga(String descricao, String status) {
+	        for (Vaga vaga : vagas) {
+	            if (vaga.getDescricao().equals(descricao) && vaga.getStatus().equals(status)) {
+	                return vaga;
 	            }
 	        }
+	    
+	        return null;
 	    }
+	    //Adicionar Candidatura 
+	        public void adicionarCandidatura(Candidatura candidatura) {
+		        candidaturas.add(candidatura);
+		    }
+		    
+		    public Candidatura buscarCandidatura(String descricao, String status) {
+		        for (Candidatura candidatura : candidatura) {
+		            if (candidatura.getDescricao().equals(descricao) && candidatura.getStatus().equals(status)) {
+		                return candidatura;
+		            }
+		        }
+		        return null;    
+	    
 
-	    @Override
-	    public void removerVaga(int id) {
-	        vagas.removeIf(vaga -> vaga.getId() == id);
-	    }
+}
+}
 
-	    @Override
-	    public void adicionarCandidatura(Candidatura candidatura) {
-	        candidaturas.add(candidatura);
-	    }
-
-	    @Override
-	    public void atualizarCandidatura(Candidatura candidatura) {
-	        for (int i = 0; i < candidaturas.size(); i++) {
-	            if (candidaturas.get(i).getId() == candidatura.getId()) {
-	                candidaturas.set(i, candidatura);
-	                break;
-	            }
-	        }
-	    }
-
-	    @Override
-	    public void removerCandidatura(int id) {
-	        candidaturas.removeIf(candidatura -> candidatura.getId() == id);
-	    }
-
-		@Override
-		public void adicionarFuncionario(Funcionario funcionario) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void atualizarFuncionario(Funcionario funcionario) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void adicionarVagas(Vagas vaga) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void atualizarVagas(Vagas vaga) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void removerVagas(int id) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void adicionarCandidatura(Candidatura candidatura) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void atualizarCandidatura(Candidatura candidatura) {
-			// TODO Auto-generated method stub
-			
-		}
-	}
-
+	    
