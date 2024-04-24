@@ -44,9 +44,9 @@ public class GerenciadorRH {
 		        candidaturas.add(candidatura);
 		    }
 		    
-		    public Candidatura buscarCandidatura(String descricao, String status) {
-		        for (Candidatura candidatura : candidatura) {
-		            if (candidatura.getDescricao().equals(descricao) && candidatura.getStatus().equals(status)) {
+		    public Candidatura buscarCandidatura(String status) {
+		        for (Candidatura candidatura : candidaturas) {
+		            if (candidatura.getStatus().equals(status)) {
 		                return candidatura;
 		            }
 		        }
